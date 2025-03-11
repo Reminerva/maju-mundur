@@ -1,5 +1,6 @@
 package com.majumundur.majumundur.service.serviceimpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.security.core.Authentication;
@@ -48,7 +49,8 @@ public class AuthServiceImpl implements AuthService {
                             .role(ERole.ROLE_MERCHANT)
                             .build();
 
-            List<Role> userRole = List.of(role);
+            List<Role> userRole = new ArrayList<>();
+            userRole.add(role);
 
             roleRepository.saveAllAndFlush(userRole);
 
@@ -76,7 +78,8 @@ public class AuthServiceImpl implements AuthService {
                             .role(ERole.ROLE_CUSTOMER)
                             .build();
 
-            List<Role> userRole = List.of(role);
+            List<Role> userRole = new ArrayList<>();
+            userRole.add(role);
 
             roleRepository.saveAllAndFlush(userRole);
 
@@ -142,7 +145,7 @@ public class AuthServiceImpl implements AuthService {
     private RegisterResponse toRegisterResponse(AppUser userAccount) {
         return RegisterResponse.builder()
             .email(userAccount.getEmail())
-            .roles(List.of(userAccount.getRoles().get(0).getRole().getDescription(), userAccount.getRoles().get(1).getRole().getDescription()))
+            .roles(List.of(userAccount.getRoles().get(0).getRole().getDescription()))
             .build();
     }
 }
