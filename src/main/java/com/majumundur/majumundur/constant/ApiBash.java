@@ -10,6 +10,8 @@ public class ApiBash {
 
     public static final String MERCHANT_SIGNUP = "/merchant/signup";
     public static final String CUSTOMER_SIGNUP = "/customer/signup";
+    public static final String LOGIN = "/login";
+    public static final String LOGOUT = "/logout";
     public static final String GET_BY_ID = "/{id}";
     public static final String APPROVE = "/{adminId}/approve";
 
@@ -38,4 +40,10 @@ public class ApiBash {
     public static final String DELETE_TRANSACTION_SUCCESS = "Transaction deleted successfully!";
     public static final String UPDATE_TRANSACTION_SUCCESS = "Transaction updated successfully!";
     public static final String GET_ALL_TRANSACTION_SUCCESS = "Get all transaction success!";
+
+    public static final String LOGIN_SUCCESS = "Login success!";
+    public static final String LOGOUT_SUCCESS = "Logout success!";
+
+    public static final String HAS_ROLE_MERCHANT = "hasRole('MERCHANT')";
+    public static final String HAS_ROLE_CUSTOMER = "hasRole('CUSTOMER')";
 }
