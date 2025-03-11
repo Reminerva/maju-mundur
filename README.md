@@ -21,6 +21,8 @@ Majumundur API adalah RESTful API yang digunakan untuk mengelola transaksi, prod
 ### Autentikasi (`/api/auth`)
 - **POST** `/merchant/signup` → Mendaftar sebagai merchant
 - **POST** `/customer/signup` → Mendaftar sebagai customer
+- **GET** `/login` → Login merchant atau customer
+- **GET** `/logout` → Logout
 
 ### Customer (`/api/customers`)
 - **POST** `/{user_id}` → Membuat customer baru
