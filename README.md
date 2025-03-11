@@ -47,22 +47,9 @@ Majumundur API adalah RESTful API yang digunakan untuk mengelola transaksi, prod
 - **PUT** `/` → Memperbarui transaksi
 - **DELETE** `/{id}` → Menghapus transaksi berdasarkan ID
 
-## Cara Menjalankan
-1. Clone repository ini
+## Clone repository ini
    ```sh
-   git clone https://github.com/username/majumundur-api.git
-   ```
-2. Masuk ke direktori proyek
-   ```sh
-   cd majumundur-api
-   ```
-3. Bangun proyek menggunakan Maven atau Gradle
-   ```sh
-   mvn clean install
-   ```
-4. Jalankan aplikasi
-   ```sh
-   mvn spring-boot:run
+   git clone https://github.com/Reminerva/maju-mundur.git
    ```
 
 ## Kontributor
