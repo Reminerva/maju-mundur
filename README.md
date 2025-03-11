@@ -53,6 +53,8 @@ Majumundur API adalah RESTful API yang digunakan untuk mengelola transaksi, prod
    ```sh
    git clone https://github.com/Reminerva/maju-mundur.git
    ```
+## Catatan
+Setting terlebih dahulu application.properties di src/main/resources/application.properties sebelum aplikasi digunakan.
 
 ## Kontributor
 - Reksa Alamsyah
