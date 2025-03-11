@@ -2,6 +2,7 @@ package com.majumundur.majumundur.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -65,6 +66,7 @@ public class TransactionController {
     }
 
     @PutMapping
+    @PreAuthorize(ApiBash.HAS_ROLE_MERCHANT)
     public ResponseEntity<CommonResponse<Transaction>> updateTransaction(@RequestBody Transaction transaction){
 
         Transaction updatedTransaction = transactionService.update(transaction);
@@ -78,6 +80,7 @@ public class TransactionController {
     }
 
     @DeleteMapping(ApiBash.GET_BY_ID)
+    @PreAuthorize(ApiBash.HAS_ROLE_MERCHANT)
     public ResponseEntity<CommonResponse<Transaction>> deleteTransaction(@PathVariable String id){
         transactionService.delete(id);
 

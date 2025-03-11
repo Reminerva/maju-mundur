@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,6 +33,7 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping
+    @PreAuthorize(ApiBash.HAS_ROLE_MERCHANT)
     public ResponseEntity<CommonResponse<Product>> createProduct(@RequestBody NewProductRequest newProductRequest){
 
             NewProductRequest product = NewProductRequest.builder()
@@ -77,6 +79,7 @@ public class ProductController {
     }
 
     @GetMapping(ApiBash.GET_BY_ID)
+    @PreAuthorize(ApiBash.HAS_ROLE_MERCHANT)
     public ResponseEntity<CommonResponse<Product>> getProductById(@PathVariable String id){
 
         Product product = productService.getById(id);
@@ -90,6 +93,7 @@ public class ProductController {
     }
 
     @PutMapping
+    @PreAuthorize(ApiBash.HAS_ROLE_MERCHANT)
     public ResponseEntity<CommonResponse<Product>> updateProduct(@RequestBody Product product){
 
         Product updatedProduct = productService.update(product);
@@ -103,6 +107,7 @@ public class ProductController {
     }
 
     @DeleteMapping(ApiBash.GET_BY_ID)
+    @PreAuthorize(ApiBash.HAS_ROLE_MERCHANT)
     public ResponseEntity<CommonResponse<Product>> deleteProduct(@PathVariable String id){
         productService.delete(id);
 

@@ -3,10 +3,10 @@ package com.majumundur.majumundur.service.serviceimpl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.security.core.Authentication;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -101,16 +101,17 @@ public class AuthServiceImpl implements AuthService {
     }
     @Override
     public AuthResponse loginUser(AuthRequest authRequest) {
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getEmail(), authRequest.getPassword()));
+        Authentication authentication = authenticationManager.authenticate(
+            new UsernamePasswordAuthenticationToken(authRequest.getEmail(), authRequest.getPassword())
+        );
 
         User user = (User) authentication.getPrincipal();
 
-        JwtTokenProvider jwtTokenProvider = new JwtTokenProvider();
         String token = jwtTokenProvider.generateToken(user.getUsername(), user.getAuthorities().toString());
 
         return toAuthResponse(user, token);
-        
     }
+
 
     @Override
     public LogoutResponse logoutUser(HttpServletRequest authRequest) {
