@@ -49,11 +49,11 @@ public class AuthController {
 
     @GetMapping(ApiBash.LOGIN)
     public ResponseEntity<CommonResponse<AuthResponse>> loginAdminAccount(
-        @RequestParam String username,
+        @RequestParam String email,
         @RequestParam String password
     ){
 
-    AuthRequest authRequest = new AuthRequest(username, password);
+    AuthRequest authRequest = new AuthRequest(email, password);
         AuthResponse userAccount = authService.loginUser(authRequest);
         CommonResponse<AuthResponse> response = CommonResponse.<AuthResponse>builder()
             .message(ApiBash.LOGIN_SUCCESS)
