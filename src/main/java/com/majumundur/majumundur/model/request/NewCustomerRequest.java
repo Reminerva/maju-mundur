@@ -1,10 +1,8 @@
 package com.majumundur.majumundur.model.request;
 
-import java.time.LocalDate;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.majumundur.majumundur.entity.AppUser;
 
-import jakarta.validation.constraints.NotBlank;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 @Getter
@@ -17,8 +15,8 @@ public class NewCustomerRequest {
     private String firstName;
     private String lastName;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-    private LocalDate dateOfBirth;
+    @Schema(type = "string", example = "15-03-2025")
+    private String dateOfBirth;
 
     private String phone;
     private String status;

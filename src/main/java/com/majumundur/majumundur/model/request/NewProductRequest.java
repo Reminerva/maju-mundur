@@ -1,9 +1,6 @@
 package com.majumundur.majumundur.model.request;
 
-import java.time.LocalDate;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -22,12 +19,13 @@ public class NewProductRequest {
     @NotBlank(message = "Name is required ")
     private String productName;
     @Min(value = 0, message = "price cannot be negative")
-    private String price;
+    private Integer price;
     @Min(value = 0, message = "stock cannot be negative")
     private Integer stock;
     private Boolean isPriceActive;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-    private LocalDate priceDate;
+    @NotBlank(message = "Price date is required")
+    @Schema(type = "string", example = "15-03-2025")
+    private String priceDate;
     private String merchant;
 
 }

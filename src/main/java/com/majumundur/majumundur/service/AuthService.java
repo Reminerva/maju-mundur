@@ -2,7 +2,6 @@ package com.majumundur.majumundur.service;
 
 import com.majumundur.majumundur.model.request.AuthRequest;
 import com.majumundur.majumundur.model.response.AuthResponse;
-import com.majumundur.majumundur.model.response.LoginResponse;
 import com.majumundur.majumundur.model.response.LogoutResponse;
 import com.majumundur.majumundur.model.response.RegisterResponse;
 

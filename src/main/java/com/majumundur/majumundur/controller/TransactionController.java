@@ -16,7 +16,6 @@ import com.majumundur.majumundur.constant.ApiBash;
 import com.majumundur.majumundur.entity.Transaction;
 import com.majumundur.majumundur.model.request.NewTransactionRequest;
 import com.majumundur.majumundur.model.response.CommonResponse;
-import com.majumundur.majumundur.service.AppUserService;
 import com.majumundur.majumundur.service.TransactionService;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

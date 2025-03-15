@@ -1,5 +1,7 @@
 package com.majumundur.majumundur.service.serviceimpl;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,11 +33,13 @@ public class ProductServiceImpl implements ProductService{
     public Product create(NewProductRequest productRequest) {
         try {
             Merchant merchant = merchantService.getById(productRequest.getMerchant());
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            LocalDate parsedDate = LocalDate.parse(productRequest.getPriceDate(), formatter);
 
             Product product = Product.builder()
                 .productName(productRequest.getProductName())
-                .priceDate(productRequest.getPriceDate())
-                .price(Integer.parseInt(productRequest.getPrice()))
+                .priceDate(parsedDate)
+                .price(productRequest.getPrice())
                 .merchant(merchant)
                 .isPriceActive(productRequest.getIsPriceActive())
                 .stock(productRequest.getStock())

@@ -1,8 +1,8 @@
 package com.majumundur.majumundur.model.request;
 
-import java.util.List;
-
 import com.majumundur.majumundur.entity.AppUser;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
@@ -18,5 +18,6 @@ public class NewMerchantRequest {
     private String phone;
     @NotBlank(message = "Merchant location is required ")
     private String location;
+    @Schema(hidden = true)
     private AppUser user;
 }
