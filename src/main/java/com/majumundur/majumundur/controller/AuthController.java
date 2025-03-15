@@ -17,10 +17,14 @@ import com.majumundur.majumundur.model.response.LogoutResponse;
 import com.majumundur.majumundur.model.response.RegisterResponse;
 import com.majumundur.majumundur.service.AuthService;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 
 @RestController
+@SecurityRequirement(name = "Bearer Authentication")
+@Tag(name = "Auth API", description =  "API untuk mengelola authentication (register & login)")
 @RequiredArgsConstructor
 @RequestMapping(ApiBash.AUTH)
 public class AuthController {
