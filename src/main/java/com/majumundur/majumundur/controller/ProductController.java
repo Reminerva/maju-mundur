@@ -21,7 +21,6 @@ import com.majumundur.majumundur.model.request.NewProductRequest;
 import com.majumundur.majumundur.model.request.SearchProductRequest;
 import com.majumundur.majumundur.model.response.CommonResponse;
 import com.majumundur.majumundur.service.ProductService;
-import com.majumundur.majumundur.util.DateUtil;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -44,7 +43,7 @@ public class ProductController {
                                                             .productName(newProductRequest.getProductName())
                                                             .price(newProductRequest.getPrice())
                                                             .isPriceActive(newProductRequest.getIsPriceActive())
-                                                            .priceDate(DateUtil.parseDate(newProductRequest.getPriceDate().toString()))
+                                                            .priceDate(newProductRequest.getPriceDate())
                                                             .merchant(newProductRequest.getMerchant())
                                                             .stock(newProductRequest.getStock())
                                                             .build();

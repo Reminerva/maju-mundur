@@ -1,7 +1,5 @@
 package com.majumundur.majumundur.constant;
 
-import org.springframework.security.access.prepost.PreAuthorize;
-
 public class ApiBash {
 
     public static final String AUTH = "/api/auth";

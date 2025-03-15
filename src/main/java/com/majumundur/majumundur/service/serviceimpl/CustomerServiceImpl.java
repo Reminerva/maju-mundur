@@ -1,5 +1,7 @@
 package com.majumundur.majumundur.service.serviceimpl;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -20,10 +22,14 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public Customer create(NewCustomerRequest customerRequest) {
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            LocalDate parsedDate = LocalDate.parse(customerRequest.getDateOfBirth(), formatter);
+
         Customer customer = Customer.builder()
             .firstName(customerRequest.getFirstName())
             .lastName(customerRequest.getLastName())
-            .dateOfBirth(customerRequest.getDateOfBirth())
+            .dateOfBirth(parsedDate)
             .phone(customerRequest.getPhone())
             .status(customerRequest.getStatus())
             .user(customerRequest.getUser())

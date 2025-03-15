@@ -18,7 +18,6 @@ import com.majumundur.majumundur.entity.AppUser;
 import com.majumundur.majumundur.entity.Role;
 import com.majumundur.majumundur.model.request.AuthRequest;
 import com.majumundur.majumundur.model.response.AuthResponse;
-import com.majumundur.majumundur.model.response.LoginResponse;
 import com.majumundur.majumundur.model.response.LogoutResponse;
 import com.majumundur.majumundur.model.response.RegisterResponse;
 import com.majumundur.majumundur.repository.AppUserRepository;

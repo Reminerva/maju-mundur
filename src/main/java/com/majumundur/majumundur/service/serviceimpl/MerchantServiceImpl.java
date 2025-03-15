@@ -1,17 +1,14 @@
 package com.majumundur.majumundur.service.serviceimpl;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import com.majumundur.majumundur.constant.DbBash;
 import com.majumundur.majumundur.entity.Merchant;
-import com.majumundur.majumundur.entity.Product;
 import com.majumundur.majumundur.model.request.NewMerchantRequest;
 import com.majumundur.majumundur.repository.MerchantRepository;
 import com.majumundur.majumundur.service.MerchantService;
-import com.majumundur.majumundur.service.ProductService;
 
 import lombok.RequiredArgsConstructor;
 

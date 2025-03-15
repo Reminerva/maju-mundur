@@ -9,10 +9,9 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.majumundur.majumundur.constant.DbBash;
 import com.majumundur.majumundur.constant.PaymentStatus;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -59,6 +58,7 @@ public class Transaction {
 
     @Column(name = "transaction_date")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @Schema(type = "string", example = "15-03-2025")
     private LocalDate transactionDate;
 
     @Column(name = "payment_status")

@@ -18,7 +18,6 @@ import com.majumundur.majumundur.model.request.NewCustomerRequest;
 import com.majumundur.majumundur.model.response.CommonResponse;
 import com.majumundur.majumundur.service.AppUserService;
 import com.majumundur.majumundur.service.CustomerService;
-import com.majumundur.majumundur.util.DateUtil;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -45,7 +44,7 @@ public class CustomerController {
             NewCustomerRequest customer = NewCustomerRequest.builder()
                                                             .firstName(newCustomerRequest.getFirstName())
                                                             .lastName(newCustomerRequest.getLastName())
-                                                            .dateOfBirth(DateUtil.parseDate(newCustomerRequest.getDateOfBirth().toString()))
+                                                            .dateOfBirth(newCustomerRequest.getDateOfBirth())
                                                             .phone(newCustomerRequest.getPhone())
                                                             .status(newCustomerRequest.getStatus())
                                                             .user(appUser)
