@@ -23,10 +23,14 @@ import com.majumundur.majumundur.model.response.CommonResponse;
 import com.majumundur.majumundur.service.ProductService;
 import com.majumundur.majumundur.util.DateUtil;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
+@SecurityRequirement(name = "Bearer Authentication")
+@Tag(name = "Product API", description =  "API untuk mengelola product")
 @RequestMapping(ApiBash.PRODUCT)
 public class ProductController {
 

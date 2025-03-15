@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.majumundur.majumundur.constant.ApiBash;
@@ -20,12 +19,15 @@ import com.majumundur.majumundur.model.request.NewMerchantRequest;
 import com.majumundur.majumundur.model.response.CommonResponse;
 import com.majumundur.majumundur.service.AppUserService;
 import com.majumundur.majumundur.service.MerchantService;
-import com.majumundur.majumundur.util.DateUtil;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
+@SecurityRequirement(name = "Bearer Authentication")
+@Tag(name = "Merchant API", description =  "API untuk mengelola merchant")
 @RequestMapping(ApiBash.MERCHANT)
 public class MerchantController {
 
@@ -33,6 +35,7 @@ public class MerchantController {
     private final AppUserService appUserService;
 
     @PostMapping("/{user_id}")
+    @PreAuthorize(ApiBash.HAS_ROLE_MERCHANT)
     public ResponseEntity<CommonResponse<Merchant>> createMerchant(
         @RequestBody NewMerchantRequest newMerchantRequest,
         @PathVariable String user_id
@@ -57,6 +60,7 @@ public class MerchantController {
     }
 
     @GetMapping(ApiBash.GET_BY_ID)
+    @PreAuthorize(ApiBash.HAS_ROLE_MERCHANT)
     public ResponseEntity<CommonResponse<Merchant>> getMerchantById(@PathVariable String id){
 
         Merchant merchant = merchantService.getById(id);
@@ -70,6 +74,7 @@ public class MerchantController {
     }
 
     @PutMapping
+    @PreAuthorize(ApiBash.HAS_ROLE_MERCHANT)
     public ResponseEntity<CommonResponse<Merchant>> updateMerchant(@RequestBody Merchant merchant){
 
         Merchant updatedMerchant = merchantService.update(merchant);
@@ -83,6 +88,7 @@ public class MerchantController {
     }
 
     @DeleteMapping(ApiBash.GET_BY_ID)
+    @PreAuthorize(ApiBash.HAS_ROLE_MERCHANT)
     public ResponseEntity<CommonResponse<Merchant>> deleteMerchant(@PathVariable String id){
         merchantService.delete(id);
 

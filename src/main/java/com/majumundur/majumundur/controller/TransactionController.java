@@ -10,27 +10,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.majumundur.majumundur.constant.ApiBash;
-import com.majumundur.majumundur.entity.AppUser;
 import com.majumundur.majumundur.entity.Transaction;
 import com.majumundur.majumundur.model.request.NewTransactionRequest;
 import com.majumundur.majumundur.model.response.CommonResponse;
 import com.majumundur.majumundur.service.AppUserService;
 import com.majumundur.majumundur.service.TransactionService;
-import com.majumundur.majumundur.util.DateUtil;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
+@SecurityRequirement(name = "Bearer Authentication")
+@Tag(name = "Transaction API", description =  "API untuk mengelola transaction")
 @RequestMapping(ApiBash.TRANSACTION)
 public class TransactionController {
 
     private final TransactionService transactionService;
-    private final AppUserService appUserService;
 
     @PostMapping
     public ResponseEntity<CommonResponse<Transaction>> createTransaction(

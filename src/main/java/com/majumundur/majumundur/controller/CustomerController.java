@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.majumundur.majumundur.constant.ApiBash;
@@ -21,11 +20,15 @@ import com.majumundur.majumundur.service.AppUserService;
 import com.majumundur.majumundur.service.CustomerService;
 import com.majumundur.majumundur.util.DateUtil;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping(ApiBash.CUSTOMER)
+@SecurityRequirement(name = "Bearer Authentication")
+@Tag(name = "Customer API", description =  "API untuk mengelola customer")
+@RequiredArgsConstructor
 public class CustomerController {
 
     private final CustomerService customerService;
