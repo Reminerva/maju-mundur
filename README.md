@@ -9,6 +9,7 @@ Majumundur API adalah RESTful API yang digunakan untuk mengelola transaksi, prod
 - Manajemen merchant
 - Manajemen customer
 - Sistem autentikasi untuk merchant dan customer
+- **Dokumentasi API dengan Swagger**
 
 ## Teknologi yang Digunakan
 - Java
@@ -16,6 +17,12 @@ Majumundur API adalah RESTful API yang digunakan untuk mengelola transaksi, prod
 - Spring Data JPA
 - Spring Security
 - Lombok
+- **Swagger OpenAPI** (untuk dokumentasi API)
+
+## Dokumentasi API
+API ini didokumentasikan menggunakan **Swagger UI**.  
+Untuk melihat dokumentasi lengkap dan menguji endpoint secara langsung, jalankan aplikasi dan akses:  
+📌 **`http://localhost:xxxx/swagger-ui/index.html#/`**  
 
 ## Struktur Endpoint
 ### Autentikasi (`/api/auth`)
@@ -49,14 +56,15 @@ Majumundur API adalah RESTful API yang digunakan untuk mengelola transaksi, prod
 - **PUT** `/` → Memperbarui transaksi
 - **DELETE** `/{id}` → Menghapus transaksi berdasarkan ID
 
-## Clone repository ini
+## Clone Repository Ini
    ```sh
    git clone https://github.com/Reminerva/maju-mundur.git
    ```
 ## Catatan
 Setting terlebih dahulu application.properties di src/main/resources/application.properties sebelum aplikasi digunakan.
 
+## Catatan
+   Setting terlebih dahulu application.properties di src/main/resources/application.properties sebelum aplikasi digunakan.
+
 ## Kontributor
 - Reksa Alamsyah
-
-
